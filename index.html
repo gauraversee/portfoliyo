@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>my portfoloiyo</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #preloader {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      z-index: 9999;
+      flex-direction: column;
+      transition: opacity 0.5s ease;
+    }
+
+    #helloText {
+      opacity: 1;
+      transition: opacity 0.4s ease;
+    }
+
+    #content {
+      display: none;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div id="helloText">Hello</div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="content">
+    <h1>Welcome to My Website!</h1>
+    <p></p>
+  </div>
+
+  <script>
+    const greetings = [
+      "Hello", "नमस्ते", "Hola", "Bonjour", "こんにちは", "안녕하세요", "你好",
+      "Ciao", "Olá", "Hallo", "سلام", "Привет", "ਸਤ ਸ੍ਰੀ ਅਕਾਲ", "হ্যালো",
+      "ສະບາຍດີ", "สวัสดี", "Γειά σου", "Hej", "Selam", "Merhaba"
+    ];
+
+    const helloText = document.getElementById("helloText");
+    const preloader = document.getElementById("preloader");
+    const content = document.getElementById("content");
+
+    let index = 0;
+
+    function showNextGreeting() {
+      if (index < greetings.length) {
+        helloText.style.opacity = 0;
+        setTimeout(() => {
+          helloText.innerText = greetings[index];
+          helloText.style.opacity = 1;
+          index++;
+          setTimeout(showNextGreeting, 300);
+        }, 200);
+      } else {
+        // Hide preloader and show content
+        preloader.style.opacity = '0';
+        setTimeout(() => {
+          preloader.style.display = 'none';
+          content.style.display = 'block';
+        }, 500);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(showNextGreeting, 500); // Small delay to start
+    });
+  </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaurav | Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e1e1e, #111);
+      text-align: center;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #00ffe7;
+      animation: slideDown 1.2s ease;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
+      animation: fadeIn 2s ease 1s both;
+    }
+
+    .btn {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #00ffe7;
+      color: black;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #00c5b0;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #00ffe7;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    ul li {
+      background: #1a1a1a;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: 1px solid #333;
+    }
+
+    .project {
+      background: #1c1c1c;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,255,255,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+    }
+
+    .project h3 {
+      color: #00ffe7;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: #aaa;
+    }
+
+    a {
+      color: #00ffe7;
+      text-decoration: none;
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media(max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Landing Section -->
+  <header>
+    <h1>Hey, I'm Gaurav</h1>
+    <p>Code likhta hoon, dreams build karta hoon 💻✨</p>
+    <a href="#contact" class="btn">Chalo Baat Karte Hain 🚀</a>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Mere Skills</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React (Basics)</li>
+      <li>UI Design</li>
+    </ul>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Mere Projects</h2>
+    <div class="project">
+      <h3>Multilingual Preloader Website</h3>
+      <p>Ek zabardast intro animation jisme har language mein 'Hello' aata hai. Stylish, sleek aur impactful.</p>
+    </div>
+    <div class="project">
+      <h3>Todo App</h3>
+      <p>Simple par kaafi powerful task manager — add, delete aur complete karne ki suvidha ke saath.</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Karein?</h2>
+    <p>📧 Email bhejna ho toh: <a href="mailto:gauraverseee@gmail.com">gauraverseee@gmail.com</a></p>
+    <p>👋 “Aao milke kuch naya banate hain” — bas ek message door hoon!</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Gaurav | Crafted with 💙 + ☕</p>
+  </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaurav | Portfolio</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #111;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    .resume-section {
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+    .resume-section h2 {
+      font-size: 2.5rem;
+      color: teal;
+      margin-bottom: 1rem;
+    }
+    .resume-img {
+      max-width: 100%;
+      width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      margin-bottom: 1rem;
+    }
+    .download-btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      background: teal;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: 0.3s ease;
+    }
+    .download-btn:hover {
+      background: #007777;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Gaurav's Portfolio</h1>
+    <p>Code likhta hoon ✨ | Videos edit karta hoon 🎬</p>
+  </header>
+
+  <section class="resume-section">
+    <h2>My Resume</h2>
+    <img src="resume.png" alt="Gaurav's Resume" class="resume-img" />
+    <br />
+    <a href="resume.png" download class="download-btn">📄 Download My Resume</a>
+  </section>
+
+</body>
+</html>
